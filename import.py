@@ -2,6 +2,7 @@ import re
 import os
 import glob
 import subprocess
+from urllib.parse import unquote
 
 regex = '"https://mindtapp\\.com/[^# ]+"'
 files_to_check = ['index.html']
@@ -16,8 +17,8 @@ for filepath in files_to_check:
                 matches = re.findall(regex, content)
                 if matches:
                     for match in matches:
-                        url = match[1:-1] # remove trailing and leading "
-                        print(url)
+                        url = unquote(match[1:-1]) # remove trailing and leading "
+                        if "gallery" in url: print(url)
                         filepath = re.sub("\\?.*", "", url.replace("https://mindtapp.com/", ""))
                         subprocess.run(['curl', '-k', url, '-o', filepath, '--create-dirs'])
         except Exception as e:
