@@ -19,7 +19,8 @@ for filepath in files_to_check:
                     for match in matches:
                         url = unquote(match[1:-1]) # remove trailing and leading "
                         if "gallery" in url: print(url)
-                        filepath = re.sub("\\?.*", "", url.replace("https://mindtapp.com/", ""))
+                        # split up string so it doesn't get caught in Find/Replace operations
+                        filepath = re.sub("\\?.*", "", url.replace("https://"+"mindtapp.com/", ""))
                         subprocess.run(['curl', '-k', url, '-o', filepath, '--create-dirs'])
         except Exception as e:
             print(f"Error reading {filepath}: {e}")
