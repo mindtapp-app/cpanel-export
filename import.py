@@ -17,10 +17,11 @@ for filepath in files_to_check:
                 matches = re.findall(regex, content)
                 if matches:
                     for match in matches:
+                        rawurl = match[1:-1]
                         url = unquote(match[1:-1]) # remove trailing and leading "
                         if "gallery" in url: print(url)
                         # split up string so it doesn't get caught in Find/Replace operations
                         filepath = re.sub("\\?.*", "", url.replace("https://"+"mindtapp.com/", ""))
-                        subprocess.run(['curl', '-k', url, '-o', filepath, '--create-dirs'])
+                        subprocess.run(['curl', '-k', rawurl, '-o', filepath, '--create-dirs'])
         except Exception as e:
             print(f"Error reading {filepath}: {e}")
