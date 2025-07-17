@@ -13,3 +13,10 @@ Then run Find Replace in Files
 Find:    https://Z?mindtapp.com/
 Replace: ./
 ```
+
+
+alternatively use `refresh.bat` then find replace
+```
+/.+_filesZ?/
+/index_files/
+```
