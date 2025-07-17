@@ -18,5 +18,5 @@ Replace: ./
 alternatively use `refresh.bat` then find replace
 ```
 /.+_filesZ?/
-/index_files/
+./index_files/
 ```
