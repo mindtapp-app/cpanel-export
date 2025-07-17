@@ -1,0 +1,5 @@
+copy /Y "dump\About Us.html" "About-Us\index.html"
+copy /Y "dump\Contacts.html" "Contacts\index.html"
+copy /Y "dump\Home.html" "index.html"
+copy /Y "dump\Our Clients.html" "Our-Clients\index.html"
+copy /Y "dump\Privacy Policy.html" "Privacy-Policy\index.html"
